@@ -127,6 +127,10 @@ This add-on adds the following supplementary formatting buttons to Anki:
     you can enter both a link and text. To unlink a hyperlink, use the unlink
     button.
 
+* a **hyperlink2** button (default <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd>):
+
+	Upon pressing the button (chain link on white background, with a "2" on bottom right corner), you will be presented with a dialog window where you can enter a URI. This is inserted "as is" (e.g., `file:///home/user/file1.pdf`) in an `<a href="URI">` and the URI is also shown as the text of the link.
+
 * a **text highlight** button (default <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
     <kbd>N</kbd> to select color, <kbd>Ctrl</kbd> + <kbd>Shift</kbd> +
     <kbd>B</kbd> to apply it):
