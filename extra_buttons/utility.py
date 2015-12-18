@@ -96,6 +96,7 @@ class Utility(object):
     const.TABLE                         = "table"
     const.KEYBOARD                      = "keyboard"
     const.HYPERLINK                     = "hyperlink"
+    const.HYPERLINK2                    = "hyperlink2"    
     const.REMOVE_HYPERLINK              = "remove_hyperlink"
     const.BACKGROUND_COLOR              = "background_color"
     const.BACKGROUND_COLOR_CHANGE       = "background_color_change"

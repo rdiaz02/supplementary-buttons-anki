@@ -42,6 +42,7 @@ from anki_modules.aqt import editor as myeditor
 from abbreviation import Abbreviation
 from orderedlist import OrderedList
 from hyperlink import Hyperlink
+from hyperlink import Hyperlink2
 from deflist import DefList
 from table import Table
 from blockquote import Blockquote
@@ -142,6 +143,17 @@ def setup_buttons(self):
             _("Unlink ({})".format(shortcut)), check=False)
         Utility.set_icon(b2, const.REMOVE_HYPERLINK)
 
+    if preferences.prefs.get(const.HYPERLINK2):
+        shortcut = preferences.get_keybinding(const.HYPERLINK2)
+        b1 = self._addButton(const.HYPERLINK2, self.toggleHyperlink2, _(shortcut),
+            _("Insert link2 ({})".format(shortcut)), check=False)
+        Utility.set_icon(b1, const.HYPERLINK2)
+        # No remove_hyperlink2 defined
+        # shortcut = preferences.get_keybinding(const.REMOVE_HYPERLINK)
+        # b2 = self._addButton(const.REMOVE_HYPERLINK, self.unlink, _(shortcut),
+        #     _("Unlink ({})".format(shortcut)), check=False)
+        # Utility.set_icon(b2, const.REMOVE_HYPERLINK)
+        
     if preferences.prefs.get(const.BACKGROUND_COLOR):
         shortcut = preferences.get_keybinding(const.BACKGROUND_COLOR)
         b1 = self._addButton(const.BACKGROUND_COLOR, self.on_background, _(shortcut),
@@ -462,6 +474,10 @@ def toggleHyperlink(self):
     selected = self.web.selectedText()
     hyperlink = Hyperlink(self, self.parentWindow, selected)
 
+def toggleHyperlink2(self):
+    selected = self.web.selectedText()
+    hyperlink = Hyperlink2(self, self.parentWindow, selected)
+    
 def toggleMarkdown(self):
     Utility.start_safe_block(const.MARKDOWN_PREFS)
     self.saveNow()
@@ -529,6 +545,7 @@ editor.Editor.toggleMarkdown = toggleMarkdown
 editor.Editor.toggleHeading = toggleHeading
 editor.Editor.toggleAbbreviation = toggleAbbreviation
 editor.Editor.toggleHyperlink = toggleHyperlink
+editor.Editor.toggleHyperlink2 = toggleHyperlink2
 editor.Editor.remove_garbage = remove_garbage
 editor.Editor.unlink = unlink
 editor.Editor.justifyFull = justifyFull
